@@ -1,36 +1,68 @@
+import express, { Application, Router } from 'express';
+import * as dotenv from 'dotenv';
+import { json } from 'body-parser';
+
+// --- Importaciones de Infraestructura (Implementaciones Concretas) ---
 import { PostgreSQLClient } from './infrastructure/persistence/config/PostgreSQLClient';
 import { PgMiembroRepository } from './infrastructure/persistence/repositories/PgMiembroRepository';
+
+// --- Importaciones de Aplicación (Servicios/Lógica de Negocio) ---
 import { GestionMiembroService } from './application/services/GestionMiembroService';
 
-// 1. Obtener la instancia Singleton del cliente de DB
-const dbClient = PostgreSQLClient.getInstance();
+// --- Importaciones de Presentación (Controladores/Rutas) ---
+import { MiembroController } from './infrastructure/api/controllers/MiembroController';
 
-// 2. Crear la implementación concreta del Repositorio, inyectando el DbClient
-const miembroRepository = new PgMiembroRepository(dbClient);
+// Cargar variables de entorno
+dotenv.config();
 
-// 3. Crear el Servicio, inyectando la interfaz del Repositorio (Principio D)
-const gestionMiembroService = new GestionMiembroService(miembroRepository);
+// Inicializar la aplicación Express
+class App {
+  public app: Application;
+  private port = process.env.PORT || 3000;
+  
+  constructor() {
+    this.app = express();
+    this.setupMiddleware();
+    this.setupDependenciesAndRoutes();
+  }
 
-// // Ejemplo de uso del servicio para registrar un nuevo miembro
-// async function main() {
-//   try {
-//     const nuevoMiembroData = {
-//       id: 'miembro-123',
-//       nombres: 'Juan',
-//       apellidos: 'Pérez',
-//       fechaNacimiento: new Date('1990-05-15'),
-//       telefono: '555-1234',
-//       email: 'IhTl0@example.com',
-//       estado: 'PENDIENTE',
-//       fechaRegistro: new Date(),
-//       temploId: 'templo-001',
-//     };
+  private setupMiddleware(): void {
+    this.app.use(json()); // Para parsear el body como JSON
+    // Aquí iría el middleware de Auth0 (JWT) para asegurar las rutas
+    // this.app.use(authMiddleware); 
+  }
 
-//     const miembroRegistrado = await gestionMiembroService.registrarMiembro(nuevoMiembroData);
-//     console.log('Miembro registrado exitosamente:', miembroRegistrado);
-//   } catch (error) {
-//     console.error('Error registrando el miembro:', error.message);
-//   }
-// }
+  private setupDependenciesAndRoutes(): void {
+    console.log('--- Configurando Inyección de Dependencias ---');
 
-// main();
+    // 1. INFRAESTRUCTURA (DB Client y Repositorios Concretos)
+    const dbClient = PostgreSQLClient.getInstance();
+    const miembroRepository = new PgMiembroRepository(dbClient); // Inyecta DB Client 
+
+    // 2. APLICACIÓN (Servicios de Negocio)
+    // Inyecta el CONTRATO (el repositorio implementado)
+    const gestionMiembroService = new GestionMiembroService(miembroRepository);
+
+    // 3. PRESENTACIÓN (Controladores y Rutas)
+    const miembroController = new MiembroController(gestionMiembroService);
+
+    // Configración de ruta base para miembros
+    const router = Router();
+    router.use('/miembros', miembroController.router);
+
+    // prefijo principal para todas las rutas de la API
+    this.app.use('/api', router); 
+
+    console.log('--- Inyección de Dependencias Configurada ---');
+  }
+
+  public start(): void {
+    this.app.listen(this.port, () => {
+      console.log(`🚀 Servidor HolySeeSoftware corriendo en http://localhost:${this.port}/api`);
+    });
+  }
+}
+
+// Iniciar la aplicación
+const app = new App();
+app.start();

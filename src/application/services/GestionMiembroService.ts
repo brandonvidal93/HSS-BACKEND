@@ -34,4 +34,34 @@ export class GestionMiembroService {
     
     return miembroGuardado; 
   }
+  
+  // los otros métodos del servicio (obtener, actualizar, eliminar) irían aquí
+  async getMiembroById(id: string): Promise<Miembro | null> {
+    return this.miembroRepo.findById(id);
+  }
+
+  async getAllMiembros(): Promise<Miembro[]> {
+    return this.miembroRepo.findAll();
+  }
+
+  async updateMiembro(id: string, data: Partial<MiembroDTO>): Promise<Miembro> {
+    const miembroExistente = await this.miembroRepo.findById(id);
+    if (!miembroExistente) {
+      throw new Error('Miembro no encontrado.');
+    }
+
+    // Actualiza los campos permitidos
+    Object.assign(miembroExistente, data);
+    
+    return this.miembroRepo.save(miembroExistente);
+  }
+
+  async deleteMiembro(id: string): Promise<void> {
+    const miembroExistente = await this.miembroRepo.findById(id);
+    if (!miembroExistente) {
+      throw new Error('Miembro no encontrado.');
+    }
+
+    await this.miembroRepo.delete(id);
+  }
 }
