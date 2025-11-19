@@ -27,6 +27,8 @@ export class PgMiembroRepository implements MiembroRepository {
       email: row.email,
       estado: row.estado,
       fechaRegistro: new Date(row.fecha_registro),
+      fechaBautismo: row.fecha_bautismo ? new Date(row.fecha_bautismo) : undefined,
+      activo: row.activo,
       temploId: row.templo_id,
     };
   }
@@ -57,8 +59,8 @@ export class PgMiembroRepository implements MiembroRepository {
 
   async save(miembro: Miembro): Promise<Miembro> {
     const sql = `
-      INSERT INTO miembros (id, nombres, apellidos, fecha_nacimiento, telefono, email, estado, fecha_registro, iglesia_id)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      INSERT INTO miembros (id, nombres, apellidos, fecha_nacimiento, telefono, email, estado, fecha_registro, fecha_bautismo, activo, templo_id)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
       ON CONFLICT (id) DO UPDATE SET
         nombres = EXCLUDED.nombres,
         apellidos = EXCLUDED.apellidos,
@@ -66,7 +68,10 @@ export class PgMiembroRepository implements MiembroRepository {
         telefono = EXCLUDED.telefono,
         email = EXCLUDED.email,
         estado = EXCLUDED.estado,
-        iglesia_id = EXCLUDED.iglesia_id
+        fecha_registro = EXCLUDED.fecha_registro,
+        fecha_bautismo = EXCLUDED.fecha_bautismo,
+        activo = EXCLUDED.activo,
+        templo_id = EXCLUDED.templo_id
       RETURNING *;
     `;
 
@@ -79,6 +84,8 @@ export class PgMiembroRepository implements MiembroRepository {
       miembro.email,
       miembro.estado,
       miembro.fechaRegistro,
+      miembro.fechaBautismo,
+      miembro.activo,
       miembro.temploId,
     ];
 

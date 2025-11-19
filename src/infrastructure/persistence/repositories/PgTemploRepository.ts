@@ -44,7 +44,8 @@ export class PgTemploRepository implements TemploRepository {
         ciudad = EXCLUDED.ciudad,
         departamento = EXCLUDED.departamento,
         pais = EXCLUDED.pais,
-        pastor_principal_id = EXCLUDED.pastor_principal_id
+        pastor_principal_id = EXCLUDED.pastor_principal_id,
+        fecha_fundacion = EXCLUDED.fecha_fundacion
       RETURNING *;
     `;
     const params = [

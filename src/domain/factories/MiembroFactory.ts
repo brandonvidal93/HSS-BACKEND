@@ -32,9 +32,11 @@ export class MiembroFactory {
             fechaNacimiento: new Date(dto.fechaNacimiento),
             telefono: dto.telefono,
             email: dto.email,
-            estado: 'ACTIVO', // Estado inicial por defecto
+            estado: 'NO_ASOCIADO', // Estado inicial por defecto
             fechaRegistro: fechaRegistro,
-            temploId: dto.iglesiaId,
+            fechaBautismo: dto.fechaBautismo,
+            activo: true, // Activo por defecto
+            temploId: dto.temploId,
         };
     }
 }

@@ -9,6 +9,10 @@ export interface MiembroDTO {
   fechaNacimiento: string; // Se recibe como string (ej. 'YYYY-MM-DD')
   telefono: string;
   email: string;
+  estado: string;
+  fechaRegistro: Date;
+  fechaBautismo?: Date;
+  activo: boolean;
   // Solo se requiere el ID de la iglesia para la vinculación
-  iglesiaId: string; 
+  temploId: string; 
 }
