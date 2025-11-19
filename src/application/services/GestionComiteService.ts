@@ -19,20 +19,30 @@ export class GestionComiteService {
     return this.comiteRepo.save(nuevoComite);
   }
 
-  async update(id: string, dto: ComiteDTO): Promise<Comite | null> {
+  async update(id: string, data: Partial<ComiteDTO>): Promise<Comite | null> {
     const comiteExistente = await this.comiteRepo.findById(id);
     if (!comiteExistente) {
       return null;
     }
 
-    // Actualizar los campos del comité existente con los datos del DTO
-    comiteExistente.nombre = dto.nombre;
-    comiteExistente.descripcion = dto.descripcion;
-    comiteExistente.fechaCreacion = new Date(dto.fechaCreacion);
-    comiteExistente.liderId = dto.liderId;
-    comiteExistente.temploId = dto.temploId;
+    const fechaCreacion = data.fechaCreacion
+      ? new Date(data.fechaCreacion)
+      : comiteExistente.fechaCreacion;
 
-    return this.comiteRepo.save(comiteExistente);
+    const comiteActualizado: Comite = {
+      ...comiteExistente,
+      nombre: data.nombre || comiteExistente.nombre,
+      descripcion: data.descripcion || comiteExistente.descripcion,
+      fechaCreacion: fechaCreacion,
+      liderId: data.liderId || comiteExistente.liderId,
+      temploId: data.temploId || comiteExistente.temploId,
+    };
+
+    if (isNaN(comiteActualizado.fechaCreacion.getTime())) {
+      throw new Error('La fecha de creación proporcionada no es válida.');
+    }
+
+    return this.comiteRepo.save(comiteActualizado);
   }
 
   async delete(id: string): Promise<boolean> {
