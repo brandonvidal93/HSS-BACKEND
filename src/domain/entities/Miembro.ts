@@ -8,5 +8,5 @@ export interface Miembro {
   estado: 'ACTIVO' | 'INACTIVO' | 'PENDIENTE';
   fechaRegistro: Date;
   // Relación con la iglesia a la que pertenece el miembro
-  iglesiaId: string;
+  temploId: string;
 }
