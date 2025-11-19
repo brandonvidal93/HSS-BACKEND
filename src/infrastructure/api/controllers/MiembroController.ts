@@ -21,6 +21,7 @@ export class MiembroController {
     this.router.get('/miembros/:id', this.getMiembroById.bind(this));
     this.router.put('/miembros/:id', this.updateMiembro.bind(this));
     this.router.delete('/miembros/:id', this.eliminarMiembro.bind(this));
+    this.router.put('/:id/asignar-templo', this.asignarTemploAMiembro.bind(this));
   }
 
   // Manejador del POST para registrar un nuevo miembro

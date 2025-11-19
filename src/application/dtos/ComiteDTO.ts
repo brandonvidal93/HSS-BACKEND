@@ -1,9 +1,10 @@
 /**
- * ComniteDTO Data Transfer Object
+ * ComiteDTO Data Transfer Object
  * Define la estructura de datos esperada en la entrada 
  * para registrar un nuevo comité.
  */
 export interface ComiteDTO {
+  id: string;
   nombre: string;
   descripcion: string;
   fechaCreacion: Date; // Se recibe como string (ej. 'YYYY-MM-DD')

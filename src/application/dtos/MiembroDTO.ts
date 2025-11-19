@@ -4,6 +4,7 @@
  * para registrar un nuevo miembro.
  */
 export interface MiembroDTO {
+  id: string;
   nombres: string;
   apellidos: string;
   fechaNacimiento: string; // Se recibe como string (ej. 'YYYY-MM-DD')
