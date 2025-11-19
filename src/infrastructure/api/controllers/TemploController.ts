@@ -15,11 +15,11 @@ export class TemploController {
   }
 
   private initializeRoutes() {
-    this.router.post('/templos', this.saveTemplo.bind(this));
-    this.router.get('/templos', this.getAllTemplos.bind(this));
-    this.router.get('/templos/:id', this.getTemploById.bind(this));
-    this.router.put('/templos/:id', this.updateTemplo.bind(this));
-    this.router.delete('/templos/:id', this.deleteTemplo.bind(this));
+    this.router.post('/', this.saveTemplo.bind(this));
+    this.router.get('/', this.getAllTemplos.bind(this));
+    this.router.get('/:id', this.getTemploById.bind(this));
+    this.router.put('/:id', this.updateTemplo.bind(this));
+    this.router.delete('/:id', this.deleteTemplo.bind(this));
     this.router.put('/:id/asignar-pastor', this.asignarPastor);
   }
 

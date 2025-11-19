@@ -1,13 +1,11 @@
 import { Templo } from "../entities/Templo";
 import { TemploDTO } from "../../application/dtos/TemploDTO";
-
-function generateUUID(): string {
-  return 'uuid-' + Math.random().toString(36).substring(2, 9);
-}
+import { v4 as uuidv4 } from 'uuid';
 
 export class TemploFactory {
   static create(dto: TemploDTO): Templo {
-    const id = generateUUID();
+    // Generar el ID y asignar valores por defecto
+    const id = uuidv4();
 
     // Se podrían añadir reglas de validación de negocio aquí
     if (!dto.nombre || !dto.direccion) {

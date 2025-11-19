@@ -15,13 +15,13 @@ export class ComiteController {
   }
 
   private initializeRoutes() {
-    this.router.post("/comites", this.saveComite.bind(this));
-    this.router.get("/comites", this.getAllComites.bind(this));
-    this.router.get("/comites/:id", this.getComiteById.bind(this));
-    this.router.put("/comites/:id", this.updateComite.bind(this));
-    this.router.delete("/comites/:id", this.deleteComite.bind(this));
-    this.router.put("/:id/asignar-lider", this.asignarLiderComite);
-    this.router.put("/:id/asignar-templo", this.asignarTemploComite);
+    this.router.post("/", this.saveComite.bind(this));
+    this.router.get("/", this.getAllComites.bind(this));
+    this.router.get("/:id", this.getComiteById.bind(this));
+    this.router.put("/:id", this.updateComite.bind(this));
+    this.router.delete("/:id", this.deleteComite.bind(this));
+    this.router.put("/:id/asignar-lider", this.asignarLiderComite.bind(this));
+    this.router.put("/:id/asignar-templo", this.asignarTemploComite.bind(this));
   }
 
   private async getComiteById(req: Request, res: Response) {

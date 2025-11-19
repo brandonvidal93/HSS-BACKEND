@@ -1,6 +1,8 @@
 import express, { Application, Router } from 'express';
-import * as dotenv from 'dotenv';
 import { json } from 'body-parser';
+import { checkJwt } from './infrastructure/auth/authMiddleware';
+import * as dotenv from 'dotenv';
+import cors from 'cors';
 
 // --- Importaciones de Infraestructura (Implementaciones Concretas) ---
 import { PostgreSQLClient } from './infrastructure/persistence/config/PostgreSQLClient';
@@ -36,9 +38,20 @@ class App {
   }
 
   private setupMiddleware(): void {
+    this.app.use(cors({
+      origin: '*', // ⚠️ Temporalmente permitimos cualquier origen para desarrollo.
+                    // Se recomienda cambiar esto al dominio del frontend en producción.
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
+      allowedHeaders: ['Content-Type', 'Authorization'] // Importante para el JWT de Auth0
+    }));
+
     this.app.use(json()); // Para parsear el body como JSON
-    // Aquí iría el middleware de Auth0 (JWT) para asegurar las rutas
-    // this.app.use(authMiddleware); 
+    
+    // 🚨 Aplicación Global del Middleware de Seguridad
+    // Aplica el chequeo JWT a todas las rutas bajo /api
+    this.app.use('/api', checkJwt);
+
+    // console.log('--- Middleware Configurado ---');
   }
 
   private setupDependenciesAndRoutes(): void {
@@ -67,6 +80,15 @@ class App {
 
     // Configración de ruta base para miembros
     const router = Router();
+    
+    router.get('/', (req, res) => {
+      res.status(200).json({ 
+        status: 'ok', 
+        message: 'HolySeeSoftware API running successfully',
+        version: '1.0'
+      });
+    });
+
     router.use('/miembros', miembroController.router);
     router.use('/templos', temploController.router);
     router.use('/pastores', pastorController.router);

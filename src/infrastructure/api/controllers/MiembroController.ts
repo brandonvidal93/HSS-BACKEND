@@ -16,11 +16,11 @@ export class MiembroController {
   }
 
   private initializeRoutes() {
-    this.router.post('/miembros', this.saveMiembro.bind(this));
-    this.router.get('/miembros', this.getAllMiembros.bind(this));
-    this.router.get('/miembros/:id', this.getMiembroById.bind(this));
-    this.router.put('/miembros/:id', this.updateMiembro.bind(this));
-    this.router.delete('/miembros/:id', this.eliminarMiembro.bind(this));
+    this.router.post('/', this.saveMiembro.bind(this));
+    this.router.get('/', this.getAllMiembros.bind(this));
+    this.router.get('/:id', this.getMiembroById.bind(this));
+    this.router.put('/:id', this.updateMiembro.bind(this));
+    this.router.delete('/:id', this.eliminarMiembro.bind(this));
     this.router.put('/:id/asignar-templo', this.asignarTemploAMiembro.bind(this));
   }
 

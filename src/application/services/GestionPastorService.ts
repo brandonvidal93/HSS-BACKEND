@@ -19,24 +19,42 @@ export class GestionPastorService {
     return this.pastorRepo.save(nuevoPastor);
   }
 
-  async update(id: string, dto: PastorDTO): Promise<Pastor | null> {
+  async update(id: string, data: Partial<PastorDTO>): Promise<Pastor | null> {
     const pastorExistente = await this.pastorRepo.findById(id);
     if (!pastorExistente) {
       return null;
     }
 
-    // Actualizar los campos del pastor existente con los datos del DTO
-    pastorExistente.nombre = dto.nombre;
-    pastorExistente.apellido = dto.apellido;
-    pastorExistente.telefono = dto.telefono;
-    pastorExistente.correo = dto.correo;
-    pastorExistente.fechaNacimiento = new Date(dto.fechaNacimiento);
-    pastorExistente.fechaOrdenacion = new Date(dto.fechaOrdenacion);
-    pastorExistente.licenciaMinisterial = dto.licenciaMinisterial;
-    pastorExistente.estado = dto.estado;
-    pastorExistente.temploId = dto.temploId;
+    const fechaNacimiento = data.fechaNacimiento
+        ? new Date(data.fechaNacimiento)
+        : pastorExistente.fechaNacimiento;
 
-    return this.pastorRepo.save(pastorExistente);
+    const fechaOrdenacion = data.fechaOrdenacion
+        ? new Date(data.fechaOrdenacion)
+        : pastorExistente.fechaOrdenacion;
+
+    const pastorActualizado: Pastor = {
+      ...pastorExistente,
+      nombre: data.nombre || pastorExistente.nombre,
+      apellido: data.apellido || pastorExistente.apellido,
+      telefono: data.telefono || pastorExistente.telefono,
+      correo: data.correo || pastorExistente.correo,
+      fechaNacimiento,
+      fechaOrdenacion,
+      licenciaMinisterial: data.licenciaMinisterial || pastorExistente.licenciaMinisterial,
+      estado: data.estado || pastorExistente.estado,
+      temploId: data.temploId || pastorExistente.temploId,
+    };
+
+    if(isNaN(pastorActualizado.fechaNacimiento.getTime())) {
+      throw new Error('La fecha de nacimiento proporcionada no es válida.');
+    }
+
+    if(isNaN(pastorActualizado.fechaOrdenacion.getTime())) {
+      throw new Error('La fecha de ordenación proporcionada no es válida.');
+    }
+
+    return this.pastorRepo.save(pastorActualizado);
   }
 
   async delete(id: string): Promise<boolean> {

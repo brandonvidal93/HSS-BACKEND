@@ -18,22 +18,35 @@ export class GestionTemploService {
     return this.temploRepo.save(nuevoTemplo);
   }
 
-  async update(id: string, dto: TemploDTO): Promise<Templo | null> {
+  async update(id: string, data: Partial<TemploDTO>): Promise<Templo | null> {
     const temploExistente = await this.temploRepo.findById(id);
     if (!temploExistente) {
       return null;
     }
 
-    // Actualizar los campos del templo existente con los datos del DTO
-    temploExistente.nombre = dto.nombre;
-    temploExistente.direccion = dto.direccion;
-    temploExistente.ciudad = dto.ciudad;
-    temploExistente.departamento = dto.departamento;
-    temploExistente.pais = dto.pais;
-    temploExistente.pastorPrincipalId = dto.pastorPrincipalId;
-    temploExistente.fechaFundacion = new Date(dto.fechaFundacion);
+    // 1. Convertir fechaFundacion de string (si existe en el DTO) a objeto Date
+    const fechaFundacion = data.fechaFundacion 
+        ? new Date(data.fechaFundacion) 
+        : temploExistente.fechaFundacion; // Mantiene la fecha original si no se envió
 
-    return this.temploRepo.save(temploExistente);
+    // Actualizar los campos del templo existente con los datos del DTO
+    const temploActualizado: Templo = {
+      ...temploExistente,
+      nombre: data.nombre || temploExistente.nombre,
+      direccion: data.direccion || temploExistente.direccion,
+      ciudad: data.ciudad || temploExistente.ciudad,
+      departamento: data.departamento || temploExistente.departamento,
+      pais: data.pais || temploExistente.pais,
+      pastorPrincipalId: data.pastorPrincipalId || temploExistente.pastorPrincipalId,
+      fechaFundacion: fechaFundacion,
+    };
+
+    // Si la fechaFundacion resultante es inválida después de la mezcla, lanzamos un error aquí
+    if (isNaN(temploActualizado.fechaFundacion.getTime())) {
+         throw new Error('La fecha de fundación proporcionada no es válida.');
+    }
+
+    return this.temploRepo.save(temploActualizado);
   }
 
   async delete(id: string): Promise<boolean> {

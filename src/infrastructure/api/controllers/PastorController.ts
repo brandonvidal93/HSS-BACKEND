@@ -15,11 +15,11 @@ export class PastorController {
   }
 
   private initializeRoutes() {
-    this.router.post("/pastores", this.savePastor.bind(this));
-    this.router.get("/pastores", this.getAllPastores.bind(this));
-    this.router.get("/pastores/:id", this.getPastorById.bind(this));
-    this.router.put("/pastores/:id", this.updatePastor.bind(this));
-    this.router.delete("/pastores/:id", this.deletePastor.bind(this));
+    this.router.post("/", this.savePastor.bind(this));
+    this.router.get("/", this.getAllPastores.bind(this));
+    this.router.get("/:id", this.getPastorById.bind(this));
+    this.router.put("/:id", this.updatePastor.bind(this));
+    this.router.delete("/:id", this.deletePastor.bind(this));
     this.router.put("/:id/asignar-templo", this.asignarTemploPastor.bind(this));
   }
 

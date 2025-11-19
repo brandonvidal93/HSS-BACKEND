@@ -1,13 +1,6 @@
 import { Miembro } from '../entities/Miembro';
-// Se importa el DTO desde la capa de aplicación, 
-// ya que la Factory necesita saber qué datos le llegan.
 import { MiembroDTO } from '../../application/dtos/MiembroDTO';
-
-// Simulación de la función para generar UUID
-function generateUUID(): string {
-  // Aquí iría la implementación real con 'uuid/v4' o similar
-  return 'uuid-' + Math.random().toString(36).substring(2, 9);
-}
+import { v4 as uuidv4 } from 'uuid';
 
 export class MiembroFactory {
   /**
@@ -22,7 +15,7 @@ export class MiembroFactory {
     // }
 
     // Generar el ID y asignar valores por defecto
-    const id = generateUUID();
+    const id = uuidv4();
     const fechaRegistro = new Date();
 
     return {
