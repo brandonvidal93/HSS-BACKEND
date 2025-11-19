@@ -2,7 +2,8 @@ import { Templo } from "../entities/Templo";
 
 export interface TemploRepository {
   findById(id: string): Promise<Templo | null>;
-  findAll(limit?: number, offset?: number): Promise<Templo[]>;
-  save(templo: Templo): Promise<Templo>; // Crear o actualizar un templo
+  findAll(): Promise<Templo[]>;
+  save(templo: Templo): Promise<Templo>;
+  update(id: string, templo: Templo): Promise<Templo>;
   delete(id: string): Promise<boolean>;
 }

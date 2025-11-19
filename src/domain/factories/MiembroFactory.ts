@@ -15,11 +15,11 @@ export class MiembroFactory {
      * Aplica reglas de construcción iniciales y genera datos internos.
      */
     static create(dto: MiembroDTO): Miembro {
-        // Validación de construcción: ejemplo de regla de negocio
-        if (new Date().getFullYear() - new Date(dto.fechaNacimiento).getFullYear() < 18) {
-             // La Fábrica puede lanzar errores si no se cumplen las reglas de creación
-             throw new Error('El miembro debe ser mayor de 18 años para el registro principal.');
-        }
+        // // Validación de construcción: ejemplo de regla de negocio
+        // if (new Date().getFullYear() - new Date(dto.fechaNacimiento).getFullYear() < 18) {
+        //      // La Fábrica puede lanzar errores si no se cumplen las reglas de creación
+        //      throw new Error('El miembro debe ser mayor de 18 años para el registro principal.');
+        // }
 
         // Generar el ID y asignar valores por defecto
         const id = generateUUID();

@@ -57,18 +57,18 @@ export class PgMiembroRepository implements MiembroRepository {
 
   async save(miembro: Miembro): Promise<Miembro> {
     const sql = `
-            INSERT INTO miembros (id, nombres, apellidos, fecha_nacimiento, telefono, email, estado, fecha_registro, iglesia_id)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-            ON CONFLICT (id) DO UPDATE SET
-                nombres = EXCLUDED.nombres,
-                apellidos = EXCLUDED.apellidos,
-                fecha_nacimiento = EXCLUDED.fecha_nacimiento,
-                telefono = EXCLUDED.telefono,
-                email = EXCLUDED.email,
-                estado = EXCLUDED.estado,
-                iglesia_id = EXCLUDED.iglesia_id
-            RETURNING *;
-        `;
+      INSERT INTO miembros (id, nombres, apellidos, fecha_nacimiento, telefono, email, estado, fecha_registro, iglesia_id)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      ON CONFLICT (id) DO UPDATE SET
+        nombres = EXCLUDED.nombres,
+        apellidos = EXCLUDED.apellidos,
+        fecha_nacimiento = EXCLUDED.fecha_nacimiento,
+        telefono = EXCLUDED.telefono,
+        email = EXCLUDED.email,
+        estado = EXCLUDED.estado,
+        iglesia_id = EXCLUDED.iglesia_id
+      RETURNING *;
+    `;
 
     const params = [
       miembro.id,
