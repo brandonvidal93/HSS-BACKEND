@@ -49,7 +49,7 @@ class App {
     
     // 🚨 Aplicación Global del Middleware de Seguridad
     // Aplica el chequeo JWT a todas las rutas bajo /api
-    // this.app.use('/api', checkJwt);
+    this.app.use('/api', checkJwt);
 
     // console.log('--- Middleware Configurado ---');
   }
