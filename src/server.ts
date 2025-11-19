@@ -19,6 +19,7 @@ import { GestionTemploService } from './application/services/GestionTemploServic
 import { GestionPastorService } from './application/services/GestionPastorService';
 import { GestionComiteService } from './application/services/GestionComiteService';
 import { GestionUsuarioService } from './application/services/GestionUsuarioService';
+import { AuthService } from './application/services/AuthService';
 
 // --- Importaciones de Presentación (Controladores/Rutas) ---
 import { MiembroController } from './infrastructure/api/controllers/MiembroController';
@@ -26,6 +27,7 @@ import { TemploController } from './infrastructure/api/controllers/TemploControl
 import { PastorController } from './infrastructure/api/controllers/PastorController';
 import { ComiteController } from './infrastructure/api/controllers/ComiteController';
 import { UsuarioController } from './infrastructure/api/controllers/UsuarioController';
+import { LoginController } from './infrastructure/api/controllers/LoginController';
 
 // Cargar variables de entorno
 dotenv.config();
@@ -69,7 +71,7 @@ class App {
     const pastorRepository = new PgPastorRepository(dbClient);
     const comiteRepository = new PgComiteRepository(dbClient);
     const usuarioRepository = new PgUsuarioRepository(dbClient);
-
+    
     // 2. APLICACIÓN (Servicios de Negocio)
     // Inyecta el CONTRATO (el repositorio implementado)
     const gestionMiembroService = new GestionMiembroService(miembroRepository);
@@ -77,6 +79,7 @@ class App {
     const gestionPastorService = new GestionPastorService(pastorRepository);
     const gestionComiteService = new GestionComiteService(comiteRepository);
     const gestionUsuarioService = new GestionUsuarioService(usuarioRepository);
+    const authService = new AuthService(usuarioRepository);
 
     // 3. PRESENTACIÓN (Controladores y Rutas)
     const miembroController = new MiembroController(gestionMiembroService);
@@ -84,6 +87,7 @@ class App {
     const pastorController = new PastorController(gestionPastorService);
     const comiteController = new ComiteController(gestionComiteService);
     const usuarioController = new UsuarioController(gestionUsuarioService);
+    const loginController = new LoginController(authService);
 
     const publicRouter = Router();
 
@@ -99,11 +103,13 @@ class App {
     // Montamos el controlador de usuario que contiene la ruta /registrar-admin
     publicRouter.use('/usuarios', usuarioController.router);
 
+    publicRouter.use('/auth', loginController.router);
+
     // Aplicamos las rutas públicas
     this.app.use('/api', publicRouter);
 
     // Aplicamos el middleware de seguridad. Este se ejecuta DESPUÉS de las rutas públicas.
-    this.app.use('/api', checkJwt);
+    // this.app.use('/api', checkJwt);
 
     // Creamos un nuevo router para las rutas protegidas.
     const privateRouter = Router();
