@@ -1,5 +1,3 @@
-// /src/infrastructure/persistence/repositories/PgMiembroRepository.ts
-
 import { Miembro } from '../../../domain/entities/Miembro';
 import { MiembroRepository } from '../../../domain/repositories/MiembroRepository';
 import { DbClient } from '../config/DbClient';
