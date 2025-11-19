@@ -5,12 +5,21 @@ import { json } from 'body-parser';
 // --- Importaciones de Infraestructura (Implementaciones Concretas) ---
 import { PostgreSQLClient } from './infrastructure/persistence/config/PostgreSQLClient';
 import { PgMiembroRepository } from './infrastructure/persistence/repositories/PgMiembroRepository';
+import { PgTemploRepository } from './infrastructure/persistence/repositories/PgTemploRepository';
+import { PgPastorRepository } from './infrastructure/persistence/repositories/PgPastorRepository';
+import { PgComiteRepository } from './infrastructure/persistence/repositories/PgComiteRepository';
 
 // --- Importaciones de Aplicación (Servicios/Lógica de Negocio) ---
 import { GestionMiembroService } from './application/services/GestionMiembroService';
+import { GestionTemploService } from './application/services/GestionTemploService';
+import { GestionPastorService } from './application/services/GestionPastorService';
+import { GestionComiteService } from './application/services/GestionComiteService';
 
 // --- Importaciones de Presentación (Controladores/Rutas) ---
 import { MiembroController } from './infrastructure/api/controllers/MiembroController';
+import { TemploController } from './infrastructure/api/controllers/TemploController';
+import { PastorController } from './infrastructure/api/controllers/PastorController';
+import { ComiteController } from './infrastructure/api/controllers/ComiteController';
 
 // Cargar variables de entorno
 dotenv.config();
@@ -37,18 +46,31 @@ class App {
 
     // 1. INFRAESTRUCTURA (DB Client y Repositorios Concretos)
     const dbClient = PostgreSQLClient.getInstance();
+
     const miembroRepository = new PgMiembroRepository(dbClient); // Inyecta DB Client 
+    const temploRepository = new PgTemploRepository(dbClient);
+    const pastorRepository = new PgPastorRepository(dbClient);
+    const comiteRepository = new PgComiteRepository(dbClient);
 
     // 2. APLICACIÓN (Servicios de Negocio)
     // Inyecta el CONTRATO (el repositorio implementado)
     const gestionMiembroService = new GestionMiembroService(miembroRepository);
+    const gestionTemploService = new GestionTemploService(temploRepository);
+    const gestionPastorService = new GestionPastorService(pastorRepository);
+    const gestionComiteService = new GestionComiteService(comiteRepository);
 
     // 3. PRESENTACIÓN (Controladores y Rutas)
     const miembroController = new MiembroController(gestionMiembroService);
+    const temploController = new TemploController(gestionTemploService);
+    const pastorController = new PastorController(gestionPastorService);
+    const comiteController = new ComiteController(gestionComiteService);
 
     // Configración de ruta base para miembros
     const router = Router();
     router.use('/miembros', miembroController.router);
+    router.use('/templos', temploController.router);
+    router.use('/pastores', pastorController.router);
+    router.use('/comites', comiteController.router);
 
     // prefijo principal para todas las rutas de la API
     this.app.use('/api', router); 
