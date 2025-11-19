@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    // 1. Opciones del Módulo
+    "module": "CommonJS", // Estándar de módulos para Node.js
+    "moduleResolution": "node",
+    "esModuleInterop": true, // Permite importar módulos CommonJS como ES6 (ej. import express from 'express')
+    
+    // 2. Opciones de Salida
+    "outDir": "./dist", // Directorio donde se guarda el código compilado (JavaScript)
+    "rootDir": "./src", // Directorio que contiene el código fuente (TypeScript)
+    
+    // 3. Opciones de Lenguaje y Target
+    "target": "ES2020", // Target JavaScript moderno (Node.js lo soporta)
+    "strict": true, // Habilita todas las comprobaciones estrictas de TypeScript (Buenas prácticas)
+    "skipLibCheck": true, // Ignora los archivos de declaración de tipos externos
+    
+    // 4. Opciones de Debug y Fuente
+    "sourceMap": true, // Genera archivos .map para el debugging
+    "noImplicitAny": true,
+    
+    // 5. Opciones para Arquitectura (Importante)
+    "forceConsistentCasingInFileNames": true, // Asegura que las mayúsculas/minúsculas de las rutas sean consistentes
+    "resolveJsonModule": true
+  },
+  "include": [
+    "src/**/*" // Incluye todo lo dentro de la carpeta src
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts" // Excluye archivos de prueba al compilar
+  ]
+}

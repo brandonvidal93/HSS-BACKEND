@@ -1,4 +1,4 @@
-export interface Templo {
+export interface TemploDTO {
   id: string;
   nombre: string;
   direccion: string;
