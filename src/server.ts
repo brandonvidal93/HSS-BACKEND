@@ -1,6 +1,7 @@
 import express, { Application, Router } from 'express';
-import * as dotenv from 'dotenv';
 import { json } from 'body-parser';
+import { checkJwt } from './infrastructure/auth/authMiddleware';
+import * as dotenv from 'dotenv';
 
 // --- Importaciones de Infraestructura (Implementaciones Concretas) ---
 import { PostgreSQLClient } from './infrastructure/persistence/config/PostgreSQLClient';
@@ -37,8 +38,12 @@ class App {
 
   private setupMiddleware(): void {
     this.app.use(json()); // Para parsear el body como JSON
-    // Aquí iría el middleware de Auth0 (JWT) para asegurar las rutas
-    // this.app.use(authMiddleware); 
+    
+    // 🚨 Aplicación Global del Middleware de Seguridad
+    // Aplica el chequeo JWT a todas las rutas bajo /api
+    // this.app.use('/api', checkJwt);
+
+    // console.log('--- Middleware Configurado ---');
   }
 
   private setupDependenciesAndRoutes(): void {
