@@ -100,4 +100,22 @@ export class MiembroController {
       return res.status(statusCode).json({ error: errorMessage });
     }
   }
+
+  private async asignarTemploAMiembro(req: Request, res: Response) {
+    try {
+      const miembroId = req.params.id;
+      const { temploId } = req.body;
+
+      const miembroActualizado = await this.miembroService.asignarTemploAMiembro(miembroId, temploId);
+
+      return res.status(200).json({
+        message: "Templo asignado exitosamente al miembro.",
+        data: miembroActualizado,
+      });
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Error desconocido al asignar templo al miembro.";
+      return res.status(500).json({ error: errorMessage });
+    }
+  }
 }

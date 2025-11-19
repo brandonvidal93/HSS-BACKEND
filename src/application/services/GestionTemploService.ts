@@ -4,7 +4,7 @@ import { TemploDTO } from '../dtos/TemploDTO';
 import { TemploFactory } from '../../domain/factories/TemploFactory';
 
 export class GestionTemploService {
-  constructor(private temploRepo: TemploRepository) {}
+  constructor(private temploRepo: TemploRepository) { }
 
   async findById(id: string): Promise<Templo | null> {
     return this.temploRepo.findById(id);
@@ -38,17 +38,17 @@ export class GestionTemploService {
 
   async delete(id: string): Promise<boolean> {
     return this.temploRepo.delete(id);
-  } 
-  
+  }
+
   // Implementación de la relación Pastor-Templo (regla de negocio 521: Un pastor puede ser asignado a más de una iglesia, pero una iglesia solo puede tener un pastor principal activo)
   async asignarPastorPrincipal(temploId: string, pastorId: string): Promise<Templo> {
-      const templo = await this.temploRepo.findById(temploId);
-      if (!templo) throw new Error('Templo no encontrado.');
-      
-      // Lógica de negocio de la Capa de Aplicación:
-      // Aquí se podría verificar si el pastorId es un 'Pastor' o 'Líder espiritual' válido antes de asignarlo.
-      
-      templo.pastorPrincipalId = pastorId;
-      return this.temploRepo.save(templo);
+    const templo = await this.temploRepo.findById(temploId);
+    if (!templo) throw new Error('Templo no encontrado.');
+
+    // Lógica de negocio de la Capa de Aplicación:
+    // Aquí se podría verificar si el pastorId es un 'Pastor' o 'Líder espiritual' válido antes de asignarlo.
+
+    templo.pastorPrincipalId = pastorId;
+    return this.temploRepo.save(templo);
   }
 }

@@ -64,4 +64,16 @@ export class GestionMiembroService {
 
     await this.miembroRepo.delete(id);
   }
+
+  async asignarTemploAMiembro(miembroId: string, temploId: string): Promise<Miembro> {
+    const miembro = await this.miembroRepo.findById(miembroId);
+    if (!miembro) {
+      throw new Error('Miembro no encontrado.');
+    }
+
+    // Lógica de negocio: asignar el templo al miembro
+    miembro.temploId = temploId;
+
+    return this.miembroRepo.save(miembro);
+  }
 }
