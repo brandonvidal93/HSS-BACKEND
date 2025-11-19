@@ -1,0 +1,621 @@
+{
+	"info": {
+		"_postman_id": "a067ccbf-3941-4285-852d-8988ed6c6535",
+		"name": "HSS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8032314"
+	},
+	"item": [
+		{
+			"name": "Templo",
+			"item": [
+				{
+					"name": "GET All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/templos",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"templos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/templos/42e56263-72bd-470c-bd22-e57f078c02af",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"templos",
+								"42e56263-72bd-470c-bd22-e57f078c02af"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Palermo de Medellín\",\r\n  \"direccion\": \"Cra. 54 #91-65, Aranjuez, Medellín, Antioquia\",\r\n  \"ciudad\": \"Medellín\",\r\n  \"departamento\": \"Antioquia\",\r\n  \"pais\": \"Colombia\",\r\n  \"fechaFundacion\": \"1995-10-20\"\r\n  // pastorPrincipalId se puede omitir en el registro inicial o dejar como null,\r\n  // ya que la asignación se suele hacer después de registrar al Pastor.\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/templos",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"templos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"direccion\": \"Cra. 54 #91-65, Aranjuez, Medellín, Antioquia\",\r\n  \"ciudad\": \"Medellín\",\r\n  \"departamento\": \"Antioquia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/templos/42e56263-72bd-470c-bd22-e57f078c02af",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"templos",
+								"42e56263-72bd-470c-bd22-e57f078c02af"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/templos/42e56263-72bd-470c-bd22-e57f078c02af",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"templos",
+								"42e56263-72bd-470c-bd22-e57f078c02af"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pastor",
+			"item": [
+				{
+					"name": "GET All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/pastores",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"pastores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Carlos\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"telefono\": \"3001234567\",\r\n  \"correo\": \"carlos@holysee.com\",\r\n  \"fechaNacimiento\": \"1975-01-25\",\r\n  \"fechaOrdenacion\": \"2005-08-10\",\r\n  \"licenciaMinisterial\": \"LIC-PR-00123\",\r\n  \"estado\": \"ACTIVO\",\r\n  \"temploId\": \"42e56263-72bd-470c-bd22-e57f078c02af\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/pastores",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"pastores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"telefono\": \"3015558877\",\r\n  \"estado\": \"ACTIVO\", \r\n  \"licenciaMinisterial\": \"LIC-PR-00123-RENOVADO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/pastores/7d66f480-6843-4ca6-8c87-59af7fd1d98c",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"pastores",
+								"7d66f480-6843-4ca6-8c87-59af7fd1d98c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/pastores/7d66f480-6843-4ca6-8c87-59af7fd1d98c",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"pastores",
+								"7d66f480-6843-4ca6-8c87-59af7fd1d98c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Miembro",
+			"item": [
+				{
+					"name": "GET All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ROOT_API}}/miembros",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"miembros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombres\": \"Ana María\",\r\n  \"apellidos\": \"Restrepo\",\r\n  \"fechaNacimiento\": \"1998-04-12\",\r\n  \"telefono\": \"3109876543\",\r\n  \"email\": \"ana.restrepo@miembro.com\",\r\n  \"estado\": \"BAUTIZADO\",\r\n  \"fechaRegistro\": \"2025-11-19\",\r\n  \"fechaBautismo\": \"2000-06-06\",\r\n  \"activo\": true,\r\n  \"temploId\": \"42e56263-72bd-470c-bd22-e57f078c02af\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/miembros",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"miembros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"telefono\": \"3011112233\",\r\n  \"estado\": \"SERVIDOR\", \r\n  \"fechaBautismo\": \"2022-11-20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/miembros/f5b52cd4-77bb-47b6-9603-841da9b137d4",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"miembros",
+								"f5b52cd4-77bb-47b6-9603-841da9b137d4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ROOT_API}}/miembros/f5b52cd4-77bb-47b6-9603-841da9b137d4",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"miembros",
+								"f5b52cd4-77bb-47b6-9603-841da9b137d4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comité",
+			"item": [
+				{
+					"name": "GET All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU2OTA5NywiZXhwIjoxNzYzNjU1NDk3LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.U1Vtj7zq83w3-zCmeKjojw6-96zeNuPafp7zIyHa4RdbMjD5K4tqcREAkcgEO1OhbAojtyxQROQ63ciBPMD2ns-3_s6h-ClzG5NevH2vjwpyaBAJXqsr_Xv0VRwopool6FCf8mB-fIhNjMkLX0T8ehc8hCRygkOb_10tZRn1QX7i5O3WzusYsU-29TpZ-wc6VOaaN0Y1c2ikeg65FhHjWVd55PkC3pPFC-wp9LhgTvukT3Khz8iMeqD-xWkSqUn0eB5nwjUOOYaqF774lrh86lIpKoJgjd2RaQ-FDGuPyLzmwbFXArhFC6M7kWR6qJ4SY5Ulk3rABGTYVqsG2NwEOw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ROOT_API}}/comites",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"comites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Comité de Música\",\r\n  \"descripcion\": \"Encargado de la logística musical y adoración en los eventos.\",\r\n  \"fechaCreacion\": \"2020-06-06\",\r\n  \"temploId\": \"42e56263-72bd-470c-bd22-e57f078c02af\",\r\n  \"liderId\": \"f5b52cd4-77bb-47b6-9603-841da9b137d4\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/comites",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"comites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Comité de Alabanza y Adoración\",\r\n  \"descripcion\": \"Incluye planeación de cultos y ministerio de alabanza.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/comites/4290694c-123b-47bb-b3ed-4ecdb149f0c4",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"comites",
+								"4290694c-123b-47bb-b3ed-4ecdb149f0c4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkNKQldMMFdoUnNXWDdWLUNodkpQLSJ9.eyJpc3MiOiJodHRwczovL2Rldi04NmU2OGlmejR4bnJtYmZjLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9ob2x5c2VlLXNvZnR3YXJlLmNvbS9hcCIsImlhdCI6MTc2MzU3MTg2NiwiZXhwIjoxNzYzNjU4MjY2LCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJSWlZydE9GNDhiejFoRXY4a1F0eEpwWlllOFVWcXM4TSJ9.JKnBSZK5H485i3to6WplC5rcFPCQ1SgknCNvumh2fkhRou6Fy-Ct1_QEelg3HiFP7U3Zw38YbqoMbgG68NAmMiW10vIq9QJj5lyopAYFCmtDEsknp7LD4Htwz4YhvV7nQ_tRDf4mhbJMU6CPNG5e4KH7nYIhGYwUa0KtNEoPZlP9v1l2TcH4OM2RICWXRdf3x16qfBH1D34rdMYjvJKvJViFfSNyoBmwdCVVlCusgGM1GZcogENeGq1an0aClR4qVxyhv4KX63Jx2ZG4ZzcrUY0q20B0LpJi63WE5UWQlXBOd5KiXYAwwmXqQEMZgvOiDYN4gh0LIIDtlbMo1PO2ig",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ROOT_API}}/comites/4290694c-123b-47bb-b3ed-4ecdb149f0c4",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"comites",
+								"4290694c-123b-47bb-b3ed-4ecdb149f0c4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombreUsuario\": \"admin\",\r\n  \"contrasena\": \"admin123*\",\r\n  \"pastorId\": \"7d66f480-6843-4ca6-8c87-59af7fd1d98c\", \r\n  \"temploId\": \"42e56263-72bd-470c-bd22-e57f078c02af\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/usuarios/",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombreUsuario\": \"admin\",\r\n  \"contrasena\": \"admin123*\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_API}}/auth/login",
+							"host": [
+								"{{ROOT_API}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ROOT_API",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

@@ -5,8 +5,10 @@ export interface Miembro {
   fechaNacimiento: Date;
   telefono: string;
   email: string;
-  estado: 'ACTIVO' | 'INACTIVO' | 'PENDIENTE';
+  estado: 'SERVIDOR' | 'BAUTIZADO' | 'SIMPATIZANTE' | 'NO_ASOCIADO';
   fechaRegistro: Date;
+  fechaBautismo?: Date;
+  activo: boolean;
   // Relación con la iglesia a la que pertenece el miembro
-  iglesiaId: string;
+  temploId: string;
 }
